@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Buffy Quiz</h1>
+        <img src="https://seeklogo.com/images/B/buffy-the-vampire-slayer-logo-EE1A6F4682-seeklogo.com.png" alt="Logo" height="100">
+        <ul>
+            <li>Question x of y</li>
+            <li>Score: z/x</li>
+        </ul>
+    </header>
+    <main>
+        <section>
+            <p>Here's the quiz, do it</p>
+            <button>start</button>
+        </section>
+
+        <form>
+            <h2>What?</h2>
+            <fieldset>
+                <label for='op1'>
+                    Option 1:
+                    <input type="radio" id="op1" name="monster">
+                </label>
+                <label for='op2'>
+                    Option 2:
+                    <input type="radio" id="op2" name="monster">
+                </label>
+                
+                <label for='op3'>
+                        Option 3:
+                        <input type="radio" id="op3" name="monster">
+                </label>
+                
+                <label for='op4'>
+                    Option 4:
+                    <input type="radio" id="op4" name="monster">
+                </label>
+            </fieldset>
+            <input type="submit" value="Answer">
+        </form>
+
+        <section class='pop-up'>
+            <h3>Correct!</h3>
+            <p>Good job</p>
+            <button>Continue</button>
+        </section>
+
+        <section class='pop-up'>
+            <h3>Incorrect!</h3>
+            <p>The correct answer was: </p>
+            <button>Continue</button>
+        </section>
+
+        <section>
+            <h2>How'd You Do?</h2>
+            <p>z/x%</p>
+            <p>You answered z/x questions correctly</p>
+            <button>Try Again?</button>
+        </section>
+
+    </main>
+    
+
+<script src='script.js'></script>
+</body>
+</html>
