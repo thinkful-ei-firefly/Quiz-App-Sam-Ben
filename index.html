@@ -13,8 +13,8 @@
         <h1>Buffy Quiz</h1>
         <div class="ul">
             <ul>
-                <li>Question x of y</li>
-                <li>Score: z/x</li>
+                <li>Question <span class="current-answered"></span> of <span class="total"></span></li>
+                <li>Score: <span class="current-correct"></span></li>
             </ul>
         </div>
     </header>
@@ -26,24 +26,24 @@
 
         <form>
             <h2>What?</h2>
-            <fieldset>
+            <fieldset required>
                 <label for='op1'>
                     Option 1:
-                    <input type="radio" id="op1" name="monster">
+                    <input type="radio" id="op1" name="option" required>
                 </label>
                 <label for='op2'>
                     Option 2:
-                    <input type="radio" id="op2" name="monster">
+                    <input type="radio" id="op2" name="option">
                 </label>
                 
                 <label for='op3'>
                         Option 3:
-                        <input type="radio" id="op3" name="monster">
+                        <input type="radio" id="op3" name="option">
                 </label>
                 
                 <label for='op4'>
                     Option 4:
-                    <input type="radio" id="op4" name="monster">
+                    <input type="radio" id="op4" name="option">
                 </label>
             </fieldset>
             <input type="submit" value="Answer">
@@ -70,7 +70,10 @@
 
     </main>
     
-
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
 <script src='script.js'></script>
 </body>
 </html>
