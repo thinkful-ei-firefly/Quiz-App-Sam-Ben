@@ -1,20 +1,32 @@
 * {
     box-sizing: border-box;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 body { 
     max-width: 700px; 
     margin: 0 auto; 
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+main {
+    text-align: center;
+    /* margin-right: auto;
+    margin-left: auto; */
 }
 
 fieldset {
     display: flex;
 }
 
-section {
+section, form {
     border: solid black 1px;
     margin-top: 10px;
     padding: 10px;
@@ -22,6 +34,12 @@ section {
 
 .pop-up {
     max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ul {
+    width: 120px;
 }
 
 ul {
