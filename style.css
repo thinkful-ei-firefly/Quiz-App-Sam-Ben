@@ -1,5 +1,15 @@
 * {
     box-sizing: border-box;
+    font-family: 'Metal Mania', cursive;
+    letter-spacing: 2.5px;
+    color: ivory;
+    border-radius: 15px;
+    text-shadow:
+		-1px -1px 0 black,
+		1px -1px 0 black,
+		-1px 1px 0 black,
+		1px 1px 0 black;
+    
 }
 
 body { 
@@ -9,27 +19,75 @@ body {
     padding-right: 10px;
 }
 
+.background-image {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    background-color: rgb(18, 28, 46);
+    padding: 10px;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: #af111c;
+    text-shadow:
+		-1px -1px 0 ivory,
+		1px -1px 0 ivory,
+		-1px 1px 0 ivory,
+		1px 1px 0 ivory;
 }
 
 main {
     text-align: center;
-    /* margin-right: auto;
-    margin-left: auto; */
 }
 
 fieldset {
     display: flex;
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    border: black solid 1px;
+    margin-bottom: 10px;
 }
 
 section, form {
     border: solid black 1px;
     margin-top: 10px;
-    padding: 10px;
+    padding: 25px;
+    background-color: rgb(18, 28, 46);
+    padding-bottom: 60px;
+}
+
+form {
+    font-size: 20px;
+}
+
+label {
+    text-align: left;
+}
+
+button {
+    background-color: #af111c;
+    border: black solid 1px;
+    width: 120px;
+    height: 44px;
+    color: ivory;
+    font-weight: bolder;
+    font-size: 16px;
+    margin-top: 40px;
 }
 
 .pop-up {
@@ -38,8 +96,16 @@ section, form {
     margin-right: auto;
 }
 
+.pop-up p {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
 .ul {
-    width: 120px;
+    width: 200px;
 }
 
 ul {
@@ -54,6 +120,27 @@ li {
     text-align: right;
 }
 
-.disabled {
-    pointer-events: 
+.correct {
+    border: green solid 2px;
+}
+
+.incorrect {
+    border: red solid 2px;
+}
+
+input[type="radio"] {
+    position: fixed;
+    opacity: 0;
+}
+
+label:hover {
+    transform: scale(1.1);
+}
+
+.currently-selected {
+    text-shadow:
+		-1px -1px 0 ivory,
+		1px -1px 0 ivory,
+		-1px 1px 0 ivory,
+		1px 1px 0 ivory;
 }

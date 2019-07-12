@@ -101,6 +101,10 @@ function renderQuestion() {
     event.preventDefault();
     renderFeedback();
   });
+  $('label').click(event => {
+    $('label').removeClass('currently-selected');
+    $(event.currentTarget).addClass('currently-selected');
+  });
 }
 
 function renderFeedback() {
@@ -109,15 +113,15 @@ function renderFeedback() {
     CURRENT.correct++;
     updateCount();
     $('main').html(`
-        <section class='pop-up'>
+        <section class='pop-up correct'>
             <h3>Correct!</h3>
-            <p>Good job</p>
+            <p>You have a lot of potential</p>
             <button class="continue-button">Continue</button>
         </section>
     `);
   } else {
     $('main').html(`
-        <section class='pop-up'>
+        <section class='pop-up incorrect'>
             <h3>Incorrect!</h3>
             <p>The correct answer was: ${QUEST[CURRENT.answered - 1].correct}</p>
             <button class="continue-button">Continue</button>
