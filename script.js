@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 const QUEST = [
@@ -62,7 +63,7 @@ function renderStart() {
   $('main').html(`
     <section>
     <h2>Are You A Buffy Trivia Slayer?</h2>
-    <button class="start-button">START</button>
+    <button class="start-button">SLAY!</button>
     </section>
 `);
   $('.start-button').click(() => renderQuestion());
@@ -116,17 +117,17 @@ function renderFeedback() {
     updateCount();
     $('main').html(`
         <section class='feedback correct'>
-            <h2>Correct!</h2>
-            <p>You have a lot of potential</p>
-            <button class="continue-button">NEXT QUESTION</button>
+            <h2>CORRECT!</h2>
+            <p>You make Giles proud.</p>
+            <button class="continue-button">NEXT</button>
         </section>
     `);
   } else {
     $('main').html(`
         <section class='feedback incorrect'>
-            <h2>Incorrect!</h2>
-            <p>The correct answer was: ${QUEST[CURRENT.answered - 1].correct}</p>
-            <button class="continue-button">NEXT QUESTION</button>
+            <h2>INCORRECT!</h2>
+            <p>The correct answer was: "${QUEST[CURRENT.answered - 1].correct}."</p>
+            <button class="continue-button">NEXT</button>
         </section>
     `);
   }
@@ -143,7 +144,7 @@ function renderEnd() {
         <section>
             <h2>RESULTS</h2>
             <p>You slayed ${CURRENT.correct} out of ${CURRENT.answered} questions!</p>
-            <button class="restart-button">TRY AGAIN</button>
+            <button class="restart-button">SLAY AGAIN</button>
         </section>
     `);
   $('.restart-button').click(() => renderStart());
