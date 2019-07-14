@@ -19,7 +19,7 @@ body {
 
 .background-image {
     min-height: 100%;
-    min-width: 1024px;
+    min-width: 1440px;
     width: 100%;
     height: auto;
     position: fixed;
@@ -32,32 +32,25 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
-    padding-right: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 h1 {
     font-family: 'Metal Mania', sans-serif;
-    /* font-size: 50px; */
-    text-align: center;
+    font-size: 48px;
     color:#FF121E;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-.ul {
-    width: 200px;
-}
-
 ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
-    display: inline;
-    max-width: none;
 }
 
 li {
     text-align: right;
+    display: inline;
+    padding-left: 20px;
 }
 
 main {
@@ -65,17 +58,24 @@ main {
 }
 
 section {
-    padding: 25px;
-    padding-bottom: 60px;
+    padding-bottom: 125px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section img {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 button {
     background-color: #FF121E;
     width: 200px;
-    height: 44px;
-    font-weight: bolder;
+    height: 40px;
+    font-weight: bold;
     font-size: 18px;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 5px;
     border: none;
     color: white;
@@ -83,10 +83,8 @@ button {
 
 fieldset {
     display: flex;
-    width: 300px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 10px;
     border: 0;
 }
 
@@ -103,12 +101,6 @@ label:hover {
 .currently-selected {
     color: #FF121E;
     font-weight: bold;
-}
-
-.feedback {
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .correct h2 {

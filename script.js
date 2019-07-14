@@ -119,6 +119,7 @@ function renderFeedback() {
         <section class='feedback correct'>
             <h2>CORRECT!</h2>
             <p>You make Giles proud.</p>
+            <img src="https://eplcharliechat.files.wordpress.com/2015/04/giles.gif" alt="Rupert Giles">
             <button class="continue-button">NEXT</button>
         </section>
     `);
@@ -127,6 +128,7 @@ function renderFeedback() {
         <section class='feedback incorrect'>
             <h2>INCORRECT!</h2>
             <p>The correct answer was: "${QUEST[CURRENT.answered - 1].correct}."</p>
+            <img src="https://buffy-boards.com/data/xfmg/thumbnail/3/3386-6ebef45ae6c28d8e482ec0d3872e4d64.jpg?1558567298" alt="Giles as a demon">
             <button class="continue-button">NEXT</button>
         </section>
     `);
@@ -144,7 +146,7 @@ function renderEnd() {
         <section>
             <h2>RESULTS</h2>
             <p>You slayed ${CURRENT.correct} out of ${CURRENT.answered} questions!</p>
-            <button class="restart-button">SLAY AGAIN</button>
+            <button class="restart-button">SLAY AGAIN!</button>
         </section>
     `);
   $('.restart-button').click(() => renderStart());
