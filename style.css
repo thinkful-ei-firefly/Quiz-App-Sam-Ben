@@ -63,6 +63,10 @@ fieldset {
     margin-bottom: 10px;
 }
 
+fieldset:focus-within {
+    border-color: ivory;
+}
+
 section, form {
     border: solid black 1px;
     margin-top: 10px;

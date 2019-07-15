@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 const QUEST = [
@@ -97,13 +98,14 @@ function renderQuestion() {
             <button class="check-answer-button" type="submit" value="Answer">Check Your Answer</button>
         </form>
     `);
+  $('input').focus((event) => {
+    $('label').removeClass('currently-selected');
+    let labelId = $(event.currentTarget).attr('id');
+    $(`label[for='${labelId}'`).addClass('currently-selected');
+  });
   $('form').submit(event => {
     event.preventDefault();
     renderFeedback();
-  });
-  $('label').click(event => {
-    $('label').removeClass('currently-selected');
-    $(event.currentTarget).addClass('currently-selected');
   });
 }
 
@@ -140,7 +142,7 @@ function renderEnd() {
   $('main').html(`
         <section>
             <h2>How'd You Do?</h2>
-            <p>${CURRENT.correct/CURRENT.answered * 100}%</p>
+            <p>${CURRENT.correct / CURRENT.answered * 100}%</p>
             <p>You answered ${CURRENT.correct}/${CURRENT.answered} questions correctly</p>
             <button class="restart-button">Try Again?</button>
         </section>
