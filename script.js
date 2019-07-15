@@ -77,24 +77,14 @@ function renderQuestion() {
         <form>
             <h2>${QUEST[CURRENT.answered - 1].question}</h2>
             <fieldset>
-                <label for='op1'>
-                    <input type="radio" id="op1" name="option" required>
-                    ${QUEST[CURRENT.answered - 1].answers[0]}
-                </label>
-                <label for='op2'>
-                    <input type="radio" id="op2" name="option">
-                    ${QUEST[CURRENT.answered - 1].answers[1]}
-                </label>
-                
-                <label for='op3'>
-                        <input type="radio" id="op3" name="option">
-                        ${QUEST[CURRENT.answered - 1].answers[2]}
-                </label>
-                
-                <label for='op4'>
-                    <input type="radio" id="op4" name="option">
-                    ${QUEST[CURRENT.answered - 1].answers[3]}
-                </label>
+              <input type="radio" id="op1" name="option" required>
+              <label for='op1'>${QUEST[CURRENT.answered - 1].answers[0]}</label>
+              <input type="radio" id="op2" name="option">
+              <label for='op2'>${QUEST[CURRENT.answered - 1].answers[1]}</label>
+              <input type="radio" id="op3" name="option">
+              <label for='op3'>${QUEST[CURRENT.answered - 1].answers[2]}</label>
+              <input type="radio" id="op4" name="option">
+              <label for='op4'>${QUEST[CURRENT.answered - 1].answers[3]}</label>
             </fieldset>
             <button class="check-answer-button" type="submit" value="Answer">SUBMIT</button>
         </form>
@@ -111,7 +101,8 @@ function renderQuestion() {
 }
 
 function renderFeedback() {
-  const response = $('input[name=\'option\']:checked').parent().text().trim();
+  const responseId = $('input[name=\'option\']:checked').attr('id');
+  const response = $('label[for=${responseId}]').text();
   if (response === QUEST[CURRENT.answered - 1].correct) {
     CURRENT.correct++;
     updateCount();
