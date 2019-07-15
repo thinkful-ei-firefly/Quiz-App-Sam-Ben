@@ -94,6 +94,7 @@ input[type="radio"] {
     opacity: 0;
 }
 
+label:active, 
 label:hover {
     transform: scale(1.1);
     color: #FF5E66;
