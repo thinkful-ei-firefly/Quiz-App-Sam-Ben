@@ -1,12 +1,15 @@
-/* eslint-disable no-undef */
 'use strict';
 
 const QUEST = [
   {
-    question:
-      'How much did it cost to "dust" a vampire using computer graphics?',
-    answers: ['$1,000', '$5,000', '$10,000', '$20,000'],
-    correct: '$5,000'
+    question: 'How much did it cost to "dust" a vampire using computer graphics?',
+    answers: [
+      '$1,000',
+      '$5,000',
+      '$10,000',
+      '$20,000'
+    ],
+    correct: '$5,000',
   },
   {
     question: 'Who voiced the Mutant Enemy mascot which says "Grrr...Arrgh"?',
@@ -16,18 +19,17 @@ const QUEST = [
       'David Boreanaz',
       'Joss Whedon'
     ],
-    correct: 'Joss Whedon'
+    correct: 'Joss Whedon',
   },
   {
-    question:
-      'Who introduced Joss Whedon to the band that wrote the theme song?',
+    question: 'Who introduced Joss Whedon to the band that wrote the theme song?',
     answers: [
       'Sarah Michelle Gellar',
       'Alyson Hannigan',
       'Nicholas Brendon',
       'Seth Green'
     ],
-    correct: 'Alyson Hannigan'
+    correct: 'Alyson Hannigan',
   },
   {
     question: 'What has every main character done except Dawn and Anya?',
@@ -37,18 +39,106 @@ const QUEST = [
       'Slain a vampire',
       'Turned evil'
     ],
-    correct: 'Wrecked an automobile'
+    correct: 'Wrecked an automobile',
   },
   {
-    question:
-      'Which character\'s actor initially declined their role before being convinced by their agent to audition?',
-    answers: ['Glory', 'Tara', 'Riley', 'Spike'],
-    correct: 'Spike'
+    question: 'Which character\'s actor initially declined their role before being convinced by their agent to audition?',
+    answers: [
+      'Glory',
+      'Tara',
+      'Riley',
+      'Spike'
+    ],
+    correct: 'Spike',
+  },
+  {
+    question: 'How many episodes don\'t feature any vampires?',
+    answers: [
+      '1',
+      '3',
+      '7',
+      '19'
+    ],
+    correct: '7',
+  },
+  {
+    question: 'What celebrity named their daughter Willow after the Buffy character?',
+    answers: [
+      'Beyoncé',
+      'Pink',
+      'Alanis Morissette',
+      'Gwen Stefani'
+    ],
+    correct: 'Pink',
+  },
+  {
+    question: 'What was Spike\'s original accent before they settled on British?',
+    answers: [
+      'Texan',
+      'Boston',
+      'Russian',
+      'French'
+    ],
+    correct: 'Texan',
+  },
+  {
+    question: 'Which role did Sarah Michelle Gellar audition for before being cast as Buffy?',
+    answers: [
+      'Willow',
+      'Cordelia',
+      'Darla',
+      'Drusilla'
+    ],
+    correct: 'Cordelia',
+  },
+  {
+    question: 'How many churches are there in Sunnydale?',
+    answers: [
+      '1',
+      '8',
+      '27',
+      '43'
+    ],
+    correct: '43',
   }
 ];
 
-const TOTAL = QUEST.length;
+const TOTAL = 5;
 const CURRENT = { answered: 0, correct: 0 };
+const usedQuestions = [];
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max)); 
+}
+
+function shuffle(array) {
+  const newArray=array;
+  var currentIndex = newArray.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = newArray[currentIndex];
+    newArray[currentIndex] = newArray[randomIndex];
+    newArray[randomIndex] = temporaryValue;
+  }
+
+  return newArray;
+}
+
+function getQuestion() {
+  let chosenQuestion = getRandomInt(QUEST.length);
+  while (usedQuestions.includes(chosenQuestion)) {
+    chosenQuestion = getRandomInt(QUEST.length);
+  }
+  usedQuestions.push(chosenQuestion);
+  return chosenQuestion;
+}
 
 function updateCount() {
   $('.total').text(TOTAL);
@@ -69,31 +159,29 @@ function renderStart() {
   $('.start-button').click(() => renderQuestion());
 }
 
+function labelGenerator(num, qIndex) {
+  const output = [];
+  const answerArray = shuffle(QUEST[qIndex].answers);
+  for (let i=0; i < num; i++) {
+    output.push(`
+      <label for='op${i+1}'>
+          <input type="radio" id="op${i+1}" name="option" required>
+          ${answerArray[i]}
+      </label>
+  `);
+  }
+  return output.join('');
+}
+
 function renderQuestion() {
   CURRENT.answered++;
   updateCount();
+  const questIndex = getQuestion();
   $('main').html(`
-        <form>
-            <h2>${QUEST[CURRENT.answered - 1].question}</h2>
+        <form data-correct='${QUEST[questIndex].correct}'>
+            <h2>${QUEST[questIndex].question}</h2>
             <fieldset>
-                <label for='op1'>
-                    <input type="radio" id="op1" name="option" required>
-                    ${QUEST[CURRENT.answered - 1].answers[0]}
-                </label>
-                <label for='op2'>
-                    <input type="radio" id="op2" name="option">
-                    ${QUEST[CURRENT.answered - 1].answers[1]}
-                </label>
-                
-                <label for='op3'>
-                        <input type="radio" id="op3" name="option">
-                        ${QUEST[CURRENT.answered - 1].answers[2]}
-                </label>
-                
-                <label for='op4'>
-                    <input type="radio" id="op4" name="option">
-                    ${QUEST[CURRENT.answered - 1].answers[3]}
-                </label>
+            ${labelGenerator(QUEST[questIndex].answers.length, questIndex)}
             </fieldset>
             <button class="check-answer-button" type="submit" value="Answer">SUBMIT</button>
         </form>
@@ -111,7 +199,8 @@ function renderQuestion() {
 
 function renderFeedback() {
   const response = $('input[name=\'option\']:checked').parent().text().trim();
-  if (response === QUEST[CURRENT.answered - 1].correct) {
+  const correctResponse = $('form').attr('data-correct');
+  if (response === correctResponse) {
     CURRENT.correct++;
     updateCount();
     $('main').html(`
@@ -125,7 +214,7 @@ function renderFeedback() {
     $('main').html(`
         <section class='pop-up incorrect'>
             <h2>Incorrect!</h2>
-            <p>The correct answer was: ${QUEST[CURRENT.answered - 1].correct}</p>
+            <p>The correct answer was: ${correctResponse}</p>
             <button class="continue-button">NEXT</button>
         </section>
     `);
@@ -148,6 +237,7 @@ function renderEnd() {
         </section>
     `);
   $('.restart-button').click(() => renderStart());
+  usedQuestions.length=0;
 }
 
 function quizApp() {
