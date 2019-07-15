@@ -13,6 +13,7 @@ body {
 }
 
 .body-border {
+    min-height: 100vh;
     border-radius: 5px;
     background-color: rgb(3, 115, 179, 0.3);
 }
@@ -94,7 +95,6 @@ input[type="radio"] {
     opacity: 0;
 }
 
-label:active, 
 label:hover {
     transform: scale(1.1);
     color: #FF5E66;

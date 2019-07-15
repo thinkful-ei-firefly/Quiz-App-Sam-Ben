@@ -77,13 +77,13 @@ function renderQuestion() {
         <form>
             <h2>${QUEST[CURRENT.answered - 1].question}</h2>
             <fieldset>
-              <input type="radio" id="op1" name="option" required>
+              <input type="radio" id="op1" name="option" value="${QUEST[CURRENT.answered - 1].answers[0]}" required>
               <label for='op1'>${QUEST[CURRENT.answered - 1].answers[0]}</label>
-              <input type="radio" id="op2" name="option">
+              <input type="radio" id="op2" name="option" value="${QUEST[CURRENT.answered - 1].answers[1]}">
               <label for='op2'>${QUEST[CURRENT.answered - 1].answers[1]}</label>
-              <input type="radio" id="op3" name="option">
+              <input type="radio" id="op3" name="option" value="${QUEST[CURRENT.answered - 1].answers[2]}">
               <label for='op3'>${QUEST[CURRENT.answered - 1].answers[2]}</label>
-              <input type="radio" id="op4" name="option">
+              <input type="radio" id="op4" name="option" value="${QUEST[CURRENT.answered - 1].answers[3]}">
               <label for='op4'>${QUEST[CURRENT.answered - 1].answers[3]}</label>
             </fieldset>
             <button class="check-answer-button" type="submit" value="Answer">SUBMIT</button>
@@ -101,8 +101,7 @@ function renderQuestion() {
 }
 
 function renderFeedback() {
-  const responseId = $('input[name=\'option\']:checked').attr('id');
-  const response = $('label[for=${responseId}]').text();
+  const response = $('input[name=\'option\']:checked').val();
   if (response === QUEST[CURRENT.answered - 1].correct) {
     CURRENT.correct++;
     updateCount();
