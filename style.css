@@ -1,14 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Metal Mania', cursive;
-    letter-spacing: 2.5px;
-    border-radius: 15px;
-    text-shadow:
-		-1px -1px 0 black,
-		1px -1px 0 black,
-		-1px 1px 0 black,
-		1px 1px 0 black;
-    
 }
 
 html {
@@ -27,9 +18,21 @@ body {
     padding-right: 10px;
     color: ivory;
     min-width: 320px;
+    font-family: 'Metal Mania', cursive;
+    letter-spacing: 2.5px;
+    text-shadow:
+		-1px -1px 0 black,
+		1px -1px 0 black,
+		-1px 1px 0 black,
+		1px 1px 0 black;
+}
+
+header, section, form, fieldset, button {
+    border-radius: 15px;
 }
 
 header {
+    border: solid black 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,11 +49,11 @@ h1 {
     font-size: 2.4em;
     text-align: center;
     color: ivory;
-    text-shadow:
+    /* text-shadow:
 		-2px -2px 0 #af111c,
 		2px -2px 0 #af111c,
 		-2px 2px 0 #af111c,
-		2px 2px 0 #af111c;
+		2px 2px 0 #af111c; */
 }
 
 main {
