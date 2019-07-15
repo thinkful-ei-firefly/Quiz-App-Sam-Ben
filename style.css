@@ -2,7 +2,6 @@
     box-sizing: border-box;
     font-family: 'Metal Mania', cursive;
     letter-spacing: 2.5px;
-    color: ivory;
     border-radius: 15px;
     text-shadow:
 		-1px -1px 0 black,
@@ -12,22 +11,22 @@
     
 }
 
+html {
+    background-image: url("http://getwallpapers.com/wallpaper/full/c/9/e/1035958-download-free-moon-and-stars-background-2880x1800.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
 body { 
+    font-size: 16px;
     max-width: 700px; 
     margin: 0 auto; 
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.background-image {
-    min-height: 100%;
-    min-width: 1024px;
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1
+    color: ivory;
+    min-width: 320px;
 }
 
 header {
@@ -35,19 +34,23 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    background-color: rgb(18, 28, 46);
-    padding: 10px;
+    background-color: rgba(18, 28, 46, 0.6);
+    padding: 10px 30px 10px 30px;
+}
+
+header img {
+    display: none;
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 2.4em;
     text-align: center;
-    color: #af111c;
+    color: ivory;
     text-shadow:
-		-1px -1px 0 ivory,
-		1px -1px 0 ivory,
-		-1px 1px 0 ivory,
-		1px 1px 0 ivory;
+		-2px -2px 0 #af111c,
+		2px -2px 0 #af111c,
+		-2px 2px 0 #af111c,
+		2px 2px 0 #af111c;
 }
 
 main {
@@ -71,26 +74,26 @@ section, form {
     border: solid black 1px;
     margin-top: 10px;
     padding: 25px;
-    background-color: rgb(18, 28, 46);
+    background-color: rgba(18, 28, 46, 0.6);
     padding-bottom: 60px;
 }
 
-form {
+/* form {
     font-size: 20px;
-}
+} */
 
 label {
     text-align: left;
+    /* font-size: 20px; */
 }
 
 button {
     background-color: #af111c;
     border: black solid 1px;
-    width: 120px;
-    height: 44px;
+    padding: 10px 15px 10px 15px;
     color: ivory;
     font-weight: bolder;
-    font-size: 16px;
+    font-size: 1.1em;
     margin-top: 40px;
 }
 
@@ -98,14 +101,6 @@ button {
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.pop-up p {
-    font-size: 24px;
-}
-
-h3 {
-    font-size: 40px;
 }
 
 .ul {
@@ -138,13 +133,30 @@ input[type="radio"] {
 }
 
 label:hover {
-    transform: scale(1.1);
+    font-size: 1.1em;
+    color: #adff2f;
 }
 
 .currently-selected {
-    text-shadow:
-		-1px -1px 0 ivory,
-		1px -1px 0 ivory,
-		-1px 1px 0 ivory,
-		1px 1px 0 ivory;
+    color: #adff2f;
+    /* text-shadow:
+		-1px -1px 0 green,
+		1px -1px 0 green,
+		-1px 1px 0 green,
+        1px 1px 0 green; */
+        text-decoration: underline;
+}
+
+@media screen and (min-width: 700px) {
+    body {
+        font-size: 20px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    header img {
+        display: inline;
+    }
 }

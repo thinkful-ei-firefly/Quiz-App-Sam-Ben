@@ -62,8 +62,8 @@ function renderStart() {
   updateCount();
   $('main').html(`
     <section>
-    <p>Here's the quiz, do it</p>
-    <button class="start-button">start</button>
+    <h2>Are You a Buffy Trivia Slayer?</h2>
+    <button class="start-button">BEGIN</button>
     </section>
 `);
   $('.start-button').click(() => renderQuestion());
@@ -95,7 +95,7 @@ function renderQuestion() {
                     ${QUEST[CURRENT.answered - 1].answers[3]}
                 </label>
             </fieldset>
-            <button class="check-answer-button" type="submit" value="Answer">Check Your Answer</button>
+            <button class="check-answer-button" type="submit" value="Answer">SUBMIT</button>
         </form>
     `);
   $('input').focus((event) => {
@@ -116,17 +116,17 @@ function renderFeedback() {
     updateCount();
     $('main').html(`
         <section class='pop-up correct'>
-            <h3>Correct!</h3>
+            <h2>Correct!</h2>
             <p>You have a lot of potential</p>
-            <button class="continue-button">Continue</button>
+            <button class="continue-button">NEXT</button>
         </section>
     `);
   } else {
     $('main').html(`
         <section class='pop-up incorrect'>
-            <h3>Incorrect!</h3>
+            <h2>Incorrect!</h2>
             <p>The correct answer was: ${QUEST[CURRENT.answered - 1].correct}</p>
-            <button class="continue-button">Continue</button>
+            <button class="continue-button">NEXT</button>
         </section>
     `);
   }
@@ -141,10 +141,10 @@ function renderEnd() {
   updateCount();
   $('main').html(`
         <section>
-            <h2>How'd You Do?</h2>
+            <h2>RESULTS</h2>
             <p>${CURRENT.correct / CURRENT.answered * 100}%</p>
             <p>You answered ${CURRENT.correct}/${CURRENT.answered} questions correctly</p>
-            <button class="restart-button">Try Again?</button>
+            <button class="restart-button">PLAY AGAIN</button>
         </section>
     `);
   $('.restart-button').click(() => renderStart());
