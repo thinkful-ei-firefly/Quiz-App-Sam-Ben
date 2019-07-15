@@ -90,6 +90,11 @@ function renderQuestion() {
         </form>
         </section>
     `);
+  $('input').focus(() => {
+    $('label').removeClass('currently-selected');
+    let labelId = $('input').attr('id');
+    $(`label[for='${labelId}'`).addClass('currently-selected');
+  });
   $('form').submit(event => {
     event.preventDefault();
     renderFeedback();
